@@ -1,0 +1,112 @@
+#pragma once
+#ifndef _DMX_IO_H
+#define _DMX_IO_H
+
+#define V_RATIO 1.220703125
+#define I_RATIO 0.2035
+
+#define _DMX_HW_VERSION_MAJOR 3
+#define _DMX_HW_VERSION_MINOR 1
+
+#define _DMX_FW_VERSION_MAJOR 1
+#define _DMX_FW_VERSION_MINOR 0
+
+#define _DMX_RAM_128_X_32 0//просто флаг режима памяти. НЕ железный
+#define _DMX_RAM_512_X_8 1
+
+#define _DMX_REG_CONTROL 0x0208
+#define _DMX_REG_CONTROLREG_INT_VERSION_HI_CN_MODE 0x0001//
+#define _DMX_REG_CONTROL_R12_MODE 0x0002//
+#define _DMX_REG_CONTROL_CS_SAMPLE_MODE 0x0004//
+#define _DMX_REG_CONTROL_CS_REREAT_MODE 0x0008//
+#define _DMX_REG_CONTROL_ADC_RAM_MODE 0x0010 // 0: 128 ch x 32 frames, // 1: 512 ch x 8 frames
+#define _DMX_REG_CONTROL_RES_MODE 0x0020
+#define _DMX_REG_CONTROL_SYNC_MODE 0x0040
+
+#define _DMX_REG_FRAME_OFFSET 0x021E //c какого канала начать запись
+#define _DMX_REG_CHANNEL_OFFSET 0x0220 //с какого кадра начать съемку
+
+#define _DMX_REG_STATUS 0x0240
+#define _DMX_REG_STATUS_ADC_DATA_READY 0x0001//память готова
+#define _DMX_REG_STATUS_TRIGGER_ARMED 0x0002
+#define _DMX_REG_STATUS_IN_PROGRESS 0x0004//память заполняется
+
+#define _DMX_REG_DET_CMD 0x0188
+	#define _DMX_REG_DET_CMD_DETONATE 0x0001
+	#define _DMX_REG_DET_CMD_SYNC 0x0002
+
+#define _DMX_REG_COMMAND 0x0260
+#define _DMX_REG_COMMAND_ARM_TRIGGER 0x0001
+#define _DMX_REG_COMMAND_FORCED_TRIGGER 0x0002
+#define _DMX_REG_COMMAND_STOP 0x0004
+
+#define _DMX_REG_PIPELINE_CELL 0x0230
+
+#define _DMX_REG_ID 0xFFF0
+
+#define _DMX_REG_HARDWARE_VERSION 0xFFF1
+#define _DMX_REG_FIRMWARE_VERSION 0xFFF2
+
+#define _DMX_REG_INT_VERSION_LO 0x027E
+#define _DMX_REG_INT_VERSION_HI 0x027F
+
+//#define _DMX_ADDR_ADC_RAM 0x00030000//начальный адрес памяти
+//#define _DMX_ADC_RAM_LENGTH 0x00001000//длина памяти
+
+#define _DMX_SRAM_ADDR 0x00300000
+#define _DMX_SRAM_LENGTH 0x00040000
+
+#define _DMX_ADDR_ADC_RAM (_DMX_SRAM_ADDR)
+#define _DMX_ADC_RAM_LENGTH 0x00004000
+
+
+#define _DMX_REG_ECHO 0x0000
+
+#define _DMX_REG_PHASE_SHIFT 0x0210 //
+#define _DMX_REG_FRAME_LEN 0x0212
+#define _DMX_REG_STAB_WRITE 0x0202
+
+#define _DMX_REG_TRG_MODE 0x0180//режим Триггера
+#define _DMX_REG_TRG_MODE_NO_TRG 0x0000
+#define _DMX_REG_TRG_MODE_AUTO_TRG 0x0001
+#define _DMX_REG_TRG_MODE_FAST_TRG 0x0002
+#define _DMX_REG_TRG_MODE_WIRE_SENSOR 0x0003
+#define _DMX_REG_TRG_MODE_PULSE_SHUTTER 0x0004
+#define _DMX_REG_TRG_MODE_EXT_9V 0x0005
+
+#define _DMX_REG_DET_CMD 0x0188
+#define _DMX_REG_DET_CMD_DETONATE 0x0001//бит 0 - детонация
+#define _DMX_REG_DET_CMD_SYNC 0x0002//бит 1 - детонация синхронно с затвором
+
+#define _DMX_REG_FS_A_WIDTH 39
+#define _DMX_REG_FS_A0 0x0190
+#define _DMX_REG_FS_A1 0x0191
+#define _DMX_REG_FS_A2 0x0192
+
+#define _DMX_REG_FS_B_WIDTH 39
+#define _DMX_REG_FS_B0 0x0194
+#define _DMX_REG_FS_B1 0x0195
+#define _DMX_REG_FS_B2 0x0196
+
+#define _DMX_REG_FS_C_WIDTH 39
+#define _DMX_REG_FS_C0 0x0198
+#define _DMX_REG_FS_C1 0x0199
+#define _DMX_REG_FS_C2 0x019A
+
+#define _DMX_REG_FS_D_WIDTH 39
+#define _DMX_REG_FS_D0 0x019C
+#define _DMX_REG_FS_D1 0x019D
+#define _DMX_REG_FS_D2 0x019E
+
+#define _DMX_REG_FS_E_WIDTH 57
+#define _DMX_REG_FS_E0 0x01A0
+#define _DMX_REG_FS_E1 0x01A1
+#define _DMX_REG_FS_E2 0x01A2
+#define _DMX_REG_FS_E3 0x01A3
+
+#define _DMX_REG_NUM_POTS_SETUP_CH 0x0304
+#define _DMX_REG_NUM_POTS_SETUP_VAL 0x0305
+#define _DMX_REG_NUM_DAC_SETUP_CH 0x0300
+#define _DMX_REG_NUM_DAC_SETUP_VAL 0x0301
+
+#endif
